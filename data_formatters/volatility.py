@@ -192,7 +192,7 @@ class VolatilityFormatter(GenericDataFormatter):
             'total_time_steps': 252 + 5,
             'num_encoder_steps': 252,
             'num_epochs': 100,
-            'early_stopping_patience': 5,
+            'early_stopping_patience': 3,
             'multiprocessing_workers': 5,
         }
 
