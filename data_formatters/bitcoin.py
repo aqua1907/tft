@@ -21,7 +21,7 @@ class BitCoinFormatter(GenericDataFormatter):
         ('date', DataTypes.DATE, InputTypes.TIME),
         ('X2', DataTypes.REAL_VALUED, InputTypes.TARGET),
         ('X1', DataTypes.REAL_VALUED, InputTypes.OBSERVED_INPUT),
-        ('X2', DataTypes.REAL_VALUED, InputTypes.OBSERVED_INPUT),
+        ('X3', DataTypes.REAL_VALUED, InputTypes.OBSERVED_INPUT),
         ('days_from_start', DataTypes.REAL_VALUED, InputTypes.KNOWN_INPUT),
         ('day_of_week', DataTypes.CATEGORICAL, InputTypes.KNOWN_INPUT),
         ('day_of_month', DataTypes.CATEGORICAL, InputTypes.KNOWN_INPUT),
@@ -38,7 +38,7 @@ class BitCoinFormatter(GenericDataFormatter):
         self._target_scaler = None
         self._num_classes_per_cat_input = None
 
-    def split_data(self, df, valid_boundary=2016, test_boundary=2018):
+    def split_data(self, df, valid_boundary=2013, test_boundary=2015):
         """Splits data frame into training-validation-test data frames.
 
     This also calibrates scaling object, and transforms data for each split.
