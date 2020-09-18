@@ -17,7 +17,7 @@ class BitCoinFormatter(GenericDataFormatter):
       """
 
     _column_definition = [
-        ('id', DataTypes.CATEGORICAL, InputTypes.ID),
+        ('Symbol', DataTypes.CATEGORICAL, InputTypes.ID),
         ('date', DataTypes.DATE, InputTypes.TIME),
         ('X2', DataTypes.REAL_VALUED, InputTypes.TARGET),
         ('X1', DataTypes.REAL_VALUED, InputTypes.OBSERVED_INPUT),
@@ -27,6 +27,7 @@ class BitCoinFormatter(GenericDataFormatter):
         ('day_of_month', DataTypes.CATEGORICAL, InputTypes.KNOWN_INPUT),
         ('week_of_year', DataTypes.CATEGORICAL, InputTypes.KNOWN_INPUT),
         ('month', DataTypes.CATEGORICAL, InputTypes.KNOWN_INPUT),
+        ('categorical_id', DataTypes.CATEGORICAL, InputTypes.STATIC_INPUT),
     ]
 
     def __init__(self):
