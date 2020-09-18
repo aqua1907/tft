@@ -725,7 +725,6 @@ class TemporalFusionTransformer(object):
             if time_steps >= lags:
                 return np.stack(
                     [x[i:time_steps - (lags - 1) + i, :] for i in range(lags)], axis=1)
-
             else:
                 return None
 
@@ -737,7 +736,10 @@ class TemporalFusionTransformer(object):
             for tup in self.column_definition
             if tup[2] not in {InputTypes.ID, InputTypes.TIME}
         ]
-
+        print(f"id_col: {id_col}")
+        print(f"input_col: {input_cols}")
+        print(f"target_col: {target_col}")
+        print(f'time_col: {time_col}')
         data_map = {}
         for _, sliced in data.groupby(id_col):
 
@@ -1126,8 +1128,8 @@ class TemporalFusionTransformer(object):
             print('Using cached training data')
             train_data = TFTDataCache.get('train')
         else:
-            train_data = self._batch_data(valid_df)
-
+            train_data = self._batch_data(train_df)
+        print([*train_data])
         if valid_df is None:
             print('Using cached validation data')
             valid_data = TFTDataCache.get('valid')
@@ -1142,6 +1144,9 @@ class TemporalFusionTransformer(object):
 
         # Unpack without sample weights
         data, labels, active_flags = _unpack(train_data)
+        print(f"Data: {data.shape}")
+        print(f"Labels: {labels.shape}")
+        print(f"3xLabels: {np.concatenate([labels, labels, labels], axis=-1).shape}")
         val_data, val_labels, val_flags = _unpack(valid_data)
 
         all_callbacks = callbacks

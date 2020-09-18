@@ -195,7 +195,6 @@ class VolatilityFormatter(GenericDataFormatter):
             'early_stopping_patience': 3,
             'multiprocessing_workers': 5,
         }
-
         return fixed_params
 
     def get_default_model_params(self):
