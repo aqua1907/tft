@@ -6,6 +6,7 @@ GenericDataFormatter = data_formatters.base.GenericDataFormatter
 DataTypes = data_formatters.base.DataTypes
 InputTypes = data_formatters.base.InputTypes
 
+
 class BitCoinFormatter(GenericDataFormatter):
     """Defines and formats data for the volatility dataset.
 
